@@ -9,7 +9,7 @@ CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = os.path.dirname(CURRENT_DIR) 
 DATA_DIR = os.path.join(ROOT_DIR, "data")
 ENV_PATH = os.path.join(ROOT_DIR, ".env")
-load_dotenv(ENV_PATH)
+
 
 DB_PATH = os.path.join(DATA_DIR, "chroma_db_openai")
 UPLOADS_DIR = os.path.join(DATA_DIR, "uploads")
