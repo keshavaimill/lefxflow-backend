@@ -1,7 +1,7 @@
 import os
 import shutil
 import pandas as pd
-from backend import database
+
 import datetime
 
 # --- PATH CONFIGURATION ---
@@ -27,12 +27,8 @@ except ImportError:
     ChatOpenAI = None 
 
 # Import Database & Utils safely
-try:
-    from backend import database
-    from backend.utils import chunk_and_index 
-except ImportError:
-    import database
-    import utils.chunk_and_index as chunk_and_index
+from backend import database
+from backend.utils import chunk_and_index
 
 class CaseManagerAI:
     def __init__(self):
