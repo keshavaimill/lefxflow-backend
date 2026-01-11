@@ -1,118 +1,54 @@
 # ===============================
-# Core Backend & Frontend
+# UI & Backend
 # ===============================
-fastapi==0.110.0
-uvicorn==0.27.1
-streamlit==1.32.2
-pydantic==2.6.3
-python-dotenv==1.0.1
-requests==2.31.0
-aiofiles==23.2.1
-python-multipart==0.0.9
-tqdm==4.66.2
-pandas==2.2.1
+streamlit
+fastapi
+uvicorn
+requests
+python-dotenv
+python-multipart
+aiofiles
+pydantic
+tqdm
+pandas
+fastapi-mail
 
 # ===============================
-# LLM & LangChain Ecosystem
+# LLM & LangChain
 # ===============================
-openai==1.14.3
-langchain==0.1.13
-langchain-core==0.1.35
-langchain-community==0.0.29
-langchain-openai==0.0.8
-langchain-text-splitters==0.0.1
+openai
+langchain
+langchain-core
+langchain-openai
+langchain-community
+langchain-text-splitters
 
 # ===============================
-# Vector Stores & Embeddings
+# Vector Search & Embeddings
 # ===============================
-chromadb==0.4.24
-faiss-cpu==1.7.4
-sentence-transformers==2.6.1
+chromadb
+faiss-cpu
+sentence-transformers
 
 # ===============================
-# Search & Agent Tools
+# Search Tools
 # ===============================
-duckduckgo-search==5.1.0
-ddgs==1.4.0
-google-search-results==2.4.2
-
-# ===============================
-# Document & PDF Processing
-# ===============================
-python-docx==1.1.0
-pdfplumber==0.11.0
-pypdf==4.1.0
-pypdf2==3.0.1
-pdf2image==1.17.0
-xhtml2pdf==0.2.15
-beautifulsoup4==4.12.3
-
-# ===============================
-# OCR
-# ===============================
-pytesseract==0.3.10
-pillow==10.2.0
-
-# ===============================
-# Email (optional but production-useful)
-# ===============================
-fastapi-mail==1.4.1
-# ===============================
-# Core Backend & Frontend
-# ===============================
-fastapi==0.110.0
-uvicorn==0.27.1
-streamlit==1.32.2
-pydantic==2.6.3
-python-dotenv==1.0.1
-requests==2.31.0
-aiofiles==23.2.1
-python-multipart==0.0.9
-tqdm==4.66.2
-pandas==2.2.1
-
-# ===============================
-# LLM & LangChain Ecosystem
-# ===============================
-openai==1.14.3
-langchain==0.1.13
-langchain-core==0.1.35
-langchain-community==0.0.29
-langchain-openai==0.0.8
-langchain-text-splitters==0.0.1
-
-# ===============================
-# Vector Stores & Embeddings
-# ===============================
-chromadb==0.4.24
-faiss-cpu==1.7.4
-sentence-transformers==2.6.1
-
-# ===============================
-# Search & Agent Tools
-# ===============================
-duckduckgo-search==5.1.0
-ddgs==1.4.0
-google-search-results==2.4.2
+duckduckgo-search
+ddgs
+google-search-results
 
 # ===============================
 # Document & PDF Processing
 # ===============================
-python-docx==1.1.0
-pdfplumber==0.11.0
-pypdf==4.1.0
-pypdf2==3.0.1
-pdf2image==1.17.0
-xhtml2pdf==0.2.15
-beautifulsoup4==4.12.3
+python-docx
+pdfplumber
+pypdf
+pdf2image
+xhtml2pdf
+beautifulsoup4
 
 # ===============================
 # OCR
 # ===============================
-pytesseract==0.3.10
-pillow==10.2.0
-
-# ===============================
-# Email (optional but production-useful)
-# ===============================
-fastapi-mail==1.4.1
+pytesseract
+pillow
