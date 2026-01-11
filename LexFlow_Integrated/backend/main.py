@@ -15,6 +15,8 @@ from dotenv import load_dotenv
 # base_dir = os.path.dirname(current_dir)
 # env_path = os.path.join(base_dir, ".env")
 
+
+
 # if os.path.exists(env_path):
 #     load_dotenv(dotenv_path=env_path)
 #     print(f"✅ Loaded .env from: {env_path}")
@@ -29,7 +31,7 @@ from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
 # --- PATH SETUP ---
-sys.path.append(base_dir)
+# sys.path.append(base_dir)
 
 # --- MODULE IMPORTS ---
 from backend import database
