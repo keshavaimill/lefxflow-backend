@@ -11,15 +11,16 @@ import pypdf
 
 # ✅ FORCE LOAD .ENV
 from dotenv import load_dotenv
-current_dir = os.path.dirname(os.path.abspath(__file__))
-base_dir = os.path.dirname(current_dir)
-env_path = os.path.join(base_dir, ".env")
+# current_dir = os.path.dirname(os.path.abspath(__file__))
+# base_dir = os.path.dirname(current_dir)
+# env_path = os.path.join(base_dir, ".env")
 
-if os.path.exists(env_path):
-    load_dotenv(dotenv_path=env_path)
-    print(f"✅ Loaded .env from: {env_path}")
-else:
-    print("⚠️ .env file not found.")
+# if os.path.exists(env_path):
+#     load_dotenv(dotenv_path=env_path)
+#     print(f"✅ Loaded .env from: {env_path}")
+# else:
+#     print("⚠️ .env file not found.")
+load_dotenv()
 
 # --- FASTAPI IMPORTS ---
 from fastapi import FastAPI, UploadFile, File, Form, HTTPException, Body
@@ -53,7 +54,19 @@ UPLOAD_ROOT = os.path.join(DATA_DIR, "uploads")
 os.makedirs(UPLOAD_ROOT, exist_ok=True)
 
 # Initialize AI
-ai_agent = CaseManagerAI()
+# ai_agent = CaseManagerAI()
+ai_agent = None
+
+@app.on_event("startup")
+def startup_event():
+    global ai_agent
+    print("🔄 Checking Database Schema...")
+    database.init_db()
+
+    print("🤖 Initializing AI Agent...")
+    ai_agent = CaseManagerAI()   # SAFE HERE
+
+    print("✅ System Ready.")
 
 # --- CORS ---
 app.add_middleware(
