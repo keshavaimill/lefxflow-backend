@@ -29,8 +29,6 @@ ddgs
 
 
 
-pytesseract 
-pillow  
-openai 
-langchain-openai 
-langchain-core
+pytesseract pillow pdf2image
+tesseract poppler   # macOS
+openai langchain-openai langchain-core
