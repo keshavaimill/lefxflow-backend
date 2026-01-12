@@ -32,8 +32,6 @@ ddgs
 pytesseract 
 pillow 
 pdf2image
-tesseract 
-poppler  
 openai 
 langchain-openai 
 langchain-core
