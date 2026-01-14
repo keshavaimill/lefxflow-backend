@@ -34,28 +34,58 @@ except ImportError:
     import database
     import utils.chunk_and_index as chunk_and_index
 
+# class CaseManagerAI:
+#     def __init__(self):
+#         # Check for API Key
+#         self.api_key = os.getenv("OPENAI_API_KEY")
+#         self.llm = None
+#         self.vector_store = None
+        
+#         # Try to initialize Real AI (GPT-4)
+#         if self.api_key and ChatOpenAI:
+#             try:
+#                 self.embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
+#                 self.llm = ChatOpenAI(model="gpt-4o", temperature=0.0)
+#                 self.vector_store = Chroma(
+#                     collection_name="client_docs_openai",
+#                     embedding_function=self.embeddings,
+#                     persist_directory=DB_PATH
+#                 )
+#                 print("✅ AI Engine: Online (GPT-4o)")
+#             except Exception as e:
+#                 print(f"⚠️ AI Init Failed: {e}")
+#         else:
+#             print("⚠️ AI Engine: Offline (Running in Smart Simulation Mode)")
+
 class CaseManagerAI:
     def __init__(self):
-        # Check for API Key
-        self.api_key = os.getenv("OPENAI_API_KEY")
+        self.initialized = False
         self.llm = None
         self.vector_store = None
-        
-        # Try to initialize Real AI (GPT-4)
-        if self.api_key and ChatOpenAI:
-            try:
-                self.embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
-                self.llm = ChatOpenAI(model="gpt-4o", temperature=0.0)
-                self.vector_store = Chroma(
-                    collection_name="client_docs_openai",
-                    embedding_function=self.embeddings,
-                    persist_directory=DB_PATH
-                )
-                print("✅ AI Engine: Online (GPT-4o)")
-            except Exception as e:
-                print(f"⚠️ AI Init Failed: {e}")
-        else:
-            print("⚠️ AI Engine: Offline (Running in Smart Simulation Mode)")
+
+    def initialize(self):
+        if self.initialized:
+            return
+
+        api_key = os.getenv("OPENAI_API_KEY")
+        if not api_key or not ChatOpenAI:
+            print("⚠️ AI Engine: Offline")
+            self.initialized = True
+            return
+
+        os.makedirs(DB_PATH, exist_ok=True)
+
+        self.embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
+        self.llm = ChatOpenAI(model="gpt-4o", temperature=0.0)
+        self.vector_store = Chroma(
+            collection_name="client_docs_openai",
+            embedding_function=self.embeddings,
+            persist_directory=DB_PATH
+        )
+
+        self.initialized = True
+        print("✅ AI Engine initialized")
+
 
     def process_file(self, uploaded_file, client_id, client_name, user_selected_type):
         """ 
