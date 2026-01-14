@@ -55,6 +55,11 @@ os.makedirs(UPLOAD_ROOT, exist_ok=True)
 # Initialize AI
 ai_agent = CaseManagerAI()
 
+@app.on_event("startup")
+def startup_event():
+    database.init_db()
+    ai_agent.initialize()
+
 # --- CORS ---
 app.add_middleware(
     CORSMiddleware,
