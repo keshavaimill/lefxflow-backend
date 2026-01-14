@@ -417,5 +417,10 @@ async def generate_appeal_grounds(text: str = Form(None), files: List[UploadFile
 
 if __name__ == "__main__":
     import uvicorn
-    # ✅ Matches Frontend API Port (8005)
-    uvicorn.run(backend.main:app, host="0.0.0.0")
+
+    uvicorn.run(
+        "backend.main:app",
+        host="0.0.0.0",
+        port=8000,
+        reload=True
+    )
